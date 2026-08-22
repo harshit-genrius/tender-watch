@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Tender Watcher</title>
+    <meta
+      name="description"
+      content="Automated tender monitoring for NBC, decontamination and water-testing procurement across TenderDetail and GeM."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322d3ee' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9'/%3E%3Cpath d='M13.73 21a2 2 0 0 1-3.46 0'/%3E%3C/svg%3E"
+    />
+
+    <!-- Start the data download in the same tick as the HTML parse, so the
+         payload and the JS bundle stream in parallel instead of one after the
+         other. The file is encrypted; it is fetched before the password is
+         known because downloading ciphertext gives nothing away. -->
+    <link rel="preload" as="fetch" href="tenders.enc" type="application/json" crossorigin="anonymous" />
+    <script>
+      window.__tenders = fetch(new URL('tenders.enc', document.baseURI), { credentials: 'same-origin' }).then((r) => r.json());
+    </script>
+    <script type="module" crossorigin src="./assets/index-CV5XJjWM.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DRM3XFyk.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
